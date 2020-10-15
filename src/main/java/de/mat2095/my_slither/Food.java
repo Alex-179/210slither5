@@ -21,7 +21,7 @@ class Food {
     }
 
     double getRadius() {
-        double fillRate = rsp * (System.currentTimeMillis() - spawnTime) / 1200;
+        double fillRate = rsp * (System.currentTimeMillis() - spawnTime) / 12;
         if (fillRate >= 1) {
             return size;
         } else {

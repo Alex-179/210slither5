@@ -20,9 +20,9 @@ class Prey {
         this.sp = sp;
         this.spawnTime = System.currentTimeMillis();
     }
-
+    // food spawn decreases over time
     double getRadius() { // TODO: factor?
-        double fillRate = (System.currentTimeMillis() - spawnTime) / 1200.0;
+        double fillRate = (System.currentTimeMillis() - spawnTime) / 1200;
         if (fillRate >= 1) {
             return size;
         } else {
