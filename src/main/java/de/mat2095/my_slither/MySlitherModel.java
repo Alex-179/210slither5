@@ -193,7 +193,7 @@ class MySlitherModel {
 
     void addPrey(int id, double x, double y, double radius, int dir, double wang, double ang, double sp) {
         synchronized (view.modelLock) {
-            preys.put(id, new Prey(x, y, radius, dir, wang, ang, sp));
+            preys.put(id, new Prey(x, y, radius+1000, dir, wang, ang, sp/4)); // Making pray easier to catch
         }
     }
 
