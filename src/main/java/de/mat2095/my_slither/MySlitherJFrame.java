@@ -97,7 +97,7 @@ final class MySlitherJFrame extends JFrame {
     private final JScrollBar logScrollBar;
     private final JTable highscoreList;
     private final MySlitherCanvas canvas;
-
+    private String chosenColour;
     private final long startTime;
     private final Timer updateTimer;
     private Status status;
@@ -106,7 +106,7 @@ final class MySlitherJFrame extends JFrame {
     private final Player player;
     MySlitherModel model;
     final Object modelLock = new Object();
-
+    
     MySlitherJFrame() {
         super("MySlither");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -140,6 +140,9 @@ final class MySlitherJFrame extends JFrame {
 
         snake = new JComboBox<>(SNAKES);
         snake.setMaximumRowCount(snake.getItemCount());
+
+        int setColour = snake.getSelectedIndex(); //gets the JComboBox selected number
+        String chosenColour = SNAKES[setColour]; //gets the string version of that colour
 
         useRandomServer = new JCheckBox("use random server", true);
         useRandomServer.addActionListener(a -> {
@@ -288,6 +291,10 @@ final class MySlitherJFrame extends JFrame {
                 }
             }
         }, 1, 10);
+    }
+
+    String getSelectedColour() {
+        return chosenColour; // accessor of the chosen colour
     }
 
     void onOpen() {
